@@ -26,6 +26,13 @@ namespace API.Controllers
             return Ok(result);
         }
 
+        [HttpGet("GetEmployeesPaged")]
+        public async Task<ActionResult<PagedResult<EmployeeResponse>>> GetEmployeesPaged([FromQuery] GetEmployeesPagedQuery query)
+        {
+            var result = await _mediator.Send(query);
+            return Ok(result);
+        }
+
         [HttpGet("GetEmployeeById/{id}")]
         public async Task<ActionResult<EmployeeResponse>> GetEmployeeById(int id)
         {

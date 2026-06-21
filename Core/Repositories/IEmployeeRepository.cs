@@ -11,5 +11,11 @@ namespace Core.Repositories
         Task<Employee> AddAsync(Employee employee);
         Task<bool> UpdateAsync(Employee employee);
         Task<bool> DeleteAsync(int id);
+        Task<(IEnumerable<Employee> Items, int TotalCount)> GetEmployeesPagedAsync(
+            string? search, 
+            string? sortBy, 
+            bool isDescending, 
+            int pageNumber, 
+            int pageSize);
     }
 }
