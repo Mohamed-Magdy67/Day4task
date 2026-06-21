@@ -4,7 +4,6 @@ using Core.Repositories;
 using Infrastructure.Data;
 using Infrastructure.Repositories;
 using Microsoft.EntityFrameworkCore;
-using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -29,7 +28,7 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 // Register Repositories
 builder.Services.AddScoped<IEmployeeRepository, EmployeeRepository>();
 
-// Configure OpenAPI
+// Configure OpenAPI and Swagger UI
 builder.Services.AddOpenApi();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
